@@ -1,0 +1,7 @@
+html, body, input, select, textarea { font-size: 1.05em; }
+			
+/* input.ng-invalid */
+#inputStyle.ng-invalid { border-color: #ff0000; }			
+#inputStyle.ng-valid { border-color: green; }
+#inputStyle2.ng-empty { background-color: #ff0000; }			
+#inputStyle2.ng-valid { background-color: ; }
