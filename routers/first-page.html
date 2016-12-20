@@ -76,18 +76,28 @@
 		<hr />
 			
 		<!-- Repeat -->
+		<div ng-repeat='rule in rules'>
+			<ul>
+				<li>{{ rule.codeError + ': ' + rule.ruleName }}</li>
+			</ul>
+		</div>
+		
+		<hr /><br/>
+		
 		<h4>Repeat using table and filters</h4>
-		<input ng-module='txtFilter' type='text' />
+		Type any column value: <input ng-model='searchText.$' /> <br />
+		Type rule name: <input ng-model='searchText.ruleName' /> <br />
+		Type code error: <input ng-model='searchText.codeError' /> <br /><br />
 		<table>
 			<thead>
 				<tr>
-					<th>Order by codeError</th>
-					<th>lowercase</th>
-					<th>UPPERCASE</th>
+					<th ng-click="orderColumn('codeError')">Order by codeError</th>
+					<th ng-click="orderColumn('ruleName')">lowercase</th>
+					<th ng-click="orderColumn('ruleName')">UPPERCASE</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat='rule in rules | orderBy:"codeError" | filter:txtFilter '>
+				<tr ng-repeat='rule in rules | filter:searchText | orderBy:orderColumnValue:reverse '>
 					<td>{{ rule.codeError }}</td>
 					<td>{{ rule.ruleName | lowercase }}</td>
 					<td>{{ rule.ruleName | uppercase }}</td>
@@ -96,13 +106,14 @@
 		</table>
 		
 		<br />
-			
-		<div ng-repeat='rule in rules'>
-			<ul>
-				<li>{{ rule.codeError + ': ' + rule.ruleName }}</li>
-			</ul>
-		</div>
-		</table>
+		<hr />
+		
+		<h4>Filters</h4>
+		<input ng-model='txtValue' />
+		<p>Uppercase: {{ txtValue | uppercase }}</p>
+		<p>Lowercase: {{ txtValue | lowercase }}</p>
+		<p>Currency:  {{ txtValue | currency:"USD$":2 }}</p>
+		
 		
 	</div>			
 </form>	

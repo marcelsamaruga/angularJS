@@ -29,9 +29,13 @@ myApp.config(function ($routeProvider) {
 			templateUrl: 'first-page.html',
 			controller: 'firstPageController'
 		})
-		.when('/httpService', {
-			templateUrl: 'http-service.html',
-			controller: 'httpController'
+		.when('/services', {
+			templateUrl: 'services.html',
+			controller: 'servicesController'
+		})
+		.when('/forms', {
+			templateUrl: 'forms.html',
+			controller: 'formsController'
 		});
 		
 });

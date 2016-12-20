@@ -42,5 +42,11 @@ myApp.controller('firstPageController', ['$scope', '$log', '$timeout', '$filter'
 	
 	// ------------------------------------
 	
+	// orderBy Filter	
+	$scope.orderColumn = function(filter) {
+		$scope.reverse = (filter === $scope.orderColumnValue) ? ! $scope.reverse : false;
+		$scope.orderColumnValue = filter;
+	};
+	
     
 }]);
